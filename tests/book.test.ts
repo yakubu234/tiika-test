@@ -8,6 +8,7 @@ describe('Book API Endpoints', () => {
   let authorId: string;
   let testUsername: string;
   let testPassword: string;
+  let bookID: string;
 
   before(async () => {
     await sequelize.sync();
@@ -21,6 +22,7 @@ describe('Book API Endpoints', () => {
       .send({
         username: testUsername,
         password: testPassword,
+        confirm_password: testPassword,
       });
 
     expect(response.statusCode).to.equal(201);
@@ -28,13 +30,10 @@ describe('Book API Endpoints', () => {
     accessToken = response.body.accessToken;
 
     // create author 
-
-     // Register a new user
      const author =  await request(app)
      .post('/api/author')
      .set('Authorization', `Bearer ${accessToken}`)
-     .send('a random author');
-
+     .send({name:'author' + Math.random().toString(36).substring(7)});
     expect(author.statusCode).to.equal(201);
     authorId = author.body.author.id;
 
@@ -42,8 +41,9 @@ describe('Book API Endpoints', () => {
 
   it('should fetch all books', async () => {
     const response = await request(app).get('/api/books');
+    
     expect(response.statusCode).to.equal(200);
-    expect(response.body).to.be.an('array');
+    expect(response.body).to.be.an('object');
   });
 
   it('should fetch a specific book by ID', async () => {
@@ -51,7 +51,9 @@ describe('Book API Endpoints', () => {
     const bookId = 1;
     const response = await request(app).get(`/api/books/${bookId}`);
     expect(response.statusCode).to.equal(200);
-    expect(response.body).to.have.property('book', 'author');
+    expect(response.body).to.have.property('book');
+    expect(response.body.book).to.have.property('id');
+    expect(response.body.book).to.have.property('Author');
   });
 
   it('should return a 404 status when fetching a non-existent book by ID', async () => {
@@ -71,33 +73,34 @@ describe('Book API Endpoints', () => {
     expect(response.statusCode).to.equal(201);
     expect(response.body).to.have.property('book');
     expect(response.body.book.title).to.equal(newBook.title);
+    bookID = response.body.book.id
   });
 
-  // it('should update an existing book', async () => {
-  //   // Assuming you have a valid book ID
-  //   const bookId = 1;
-  //   const updatedBookData = { title: 'Updated Title', author_id: /* provide a valid author ID */ };
+  it('should update an existing book', async () => {
+    // Assuming you have a valid book ID
+    const bookId = bookID;
+    const updatedBookData = { title: 'Updated Title'  + Math.random().toString(36).substring(7), book_id:bookId };
 
-  //   const response = await request(app)
-  //     .put(`/books/${bookId}`)
-  //     .set('Authorization', `Bearer ${accessToken}`)
-  //     .send(updatedBookData);
+    const response = await request(app)
+      .put(`/api/books`)
+      .set('Authorization', `Bearer ${accessToken}`)
+      .send(updatedBookData);
 
-  //   expect(response.statusCode).to.equal(200);
-  //   expect(response.body).to.have.property('id', bookId);
-  //   expect(response.body.title).to.equal(updatedBookData.title);
-  // });
+    expect(response.statusCode).to.equal(200);
+    expect(response.body.book.id).to.equal(bookId);
+    expect(response.body.book.title).to.equal(updatedBookData.title);
+  });
 
-  // it('should delete an existing book', async () => {
-  //   // Assuming you have a valid book ID
-  //   const bookId = 1;
+  it('should delete an existing book', async () => {
+    // Assuming you have a valid book ID
+    const bookId = bookID;
 
-  //   const response = await request(app)
-  //     .delete(`/books/${bookId}`)
-  //     .set('Authorization', `Bearer ${accessToken}`);
+    const response = await request(app)
+      .delete(`/api/books/${bookId}`)
+      .set('Authorization', `Bearer ${accessToken}`);
 
-  //   expect(response.statusCode).to.equal(204);
-  // });
+    expect(response.statusCode).to.equal(204);
+  });
 
   it('should return a 401 status when creating a new book without authentication token', async () => {
     const newBook = { title:  Math.random().toString(36).substring(7)+'New Book Title', author_id: authorId , publication_year: "2032"};
@@ -105,6 +108,6 @@ describe('Book API Endpoints', () => {
     const response = await request(app).post('/api/books').send(newBook);
 
     expect(response.statusCode).to.equal(401);
-    expect(response.body.message).to.equal('Unauthorized');
+    expect(response.body.message).to.equal('UnAuthenticated Token Required failed');
   });
 });

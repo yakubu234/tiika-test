@@ -8,7 +8,7 @@ describe('User Authentication', () => {
   let testPassword: string;
 
   before(async () => {
-    await sequelize.sync();
+    // await sequelize.sync();
       // Generate dynamic test username and password
     testUsername = 'testuser_' + Math.random().toString(36).substring(7);
     testPassword = 'tes@1tpwd'+ Math.random().toString(36).substring(7);
@@ -18,8 +18,9 @@ describe('User Authentication', () => {
     const response = await request(app).post('/api/user/register').send({
       username: testUsername,
       password: testPassword,
+      confirm_password: testPassword,
     });
-
+    
     expect(response.statusCode).to.equal(201);
     expect(response.body.user.username).to.equal(testUsername);
   });

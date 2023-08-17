@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', BookController.getAllBooks);
 router.get('/:id', BookController.getBookById);
 router.post('/', authenticateToken,validate(createBookValidation), BookController.addBook);
-router.put('/:id', authenticateToken, validate(updateBookValidation) ,BookController.updateBook);
-router.delete('/:id', authenticateToken, validate(deleteBookValidation), BookController.deleteBook);
+router.put('/', authenticateToken, validate(updateBookValidation) ,BookController.updateBook);
+router.delete('/:book_id', authenticateToken, validate(deleteBookValidation), BookController.deleteBook);
 
 export { router as bookRoutes };
