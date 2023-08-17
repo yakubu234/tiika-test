@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import bcrypt from "bcrypt"; // Import bcrypt
+import bcrypt from "bcrypt"; 
 import sequelize from "../db";
 import Book from "./Book";
 

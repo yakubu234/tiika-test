@@ -1,10 +1,10 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../db";
-// import Book from "./Book";
-
+import User from "./User";
 class Author extends Model {
   public id!: number;
   public name!: string;
+  public user_id!: number;
 }
 
 Author.init(
@@ -17,12 +17,13 @@ Author.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
+    }
   },
   {
     sequelize,
     modelName: "Author",
   }
 );
+
 
 export default Author;
