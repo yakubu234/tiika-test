@@ -92,3 +92,47 @@ npx mocha -t tests
 
 - API documentation: [Postman Documentation](https://documenter.getpostman.com/view/12538701/2s9Y5R2mcr)
 - Swagger Documentation: [Swagger](https://swagger.sample.com)
+
+
+## file tree
+- root_folder/
+    - dist/
+        (compiled TypeScript files)
+    - node_modules/
+        (dependencies)
+    - src/
+        - controllers/
+            - book.ts
+            - user.ts
+        - env/
+            - .env
+            - .env.example
+        - middleware/
+            - Auth.js
+        - models/
+            - Author.ts
+            - User.ts
+            - Book.ts
+        - request/
+            - addAuthor.ts
+            - addBook.ts
+            - login.ts
+            - register.ts
+            - updateBook.ts
+        - routes/
+            - author.ts
+            - books.ts
+            - user.ts
+        - utils/
+            - response.ts
+        - db.ts (postgres database connection file with sequelize orm)
+        - index.ts (typescript main file, the initialization/entry point)
+    - test/
+    - .gitingore
+    - install_postgress.md
+    - mocha.opts
+    - package-lock.json
+    - package.json
+    - README.md
+    - tsconfig.json
+
