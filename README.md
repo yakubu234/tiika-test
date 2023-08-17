@@ -1,8 +1,94 @@
 # tiika-test
-this is a test for the position of senior backend engineer
+# Project: Bookstore API
 
-to run the test --  npx mocha
+## About the Project
 
- npx tsc -- complie
+### General
 
-npx nodemon dist/index.js  --run
+**Required Skill(s):** Node.js, Express.js, TypeScript, Postgres, Docker, Docker Compose, VPS/AWS App Runner
+
+### Requirements
+
+- User Authentication: Registration and login for users.
+- Database Models: Models for User, Book, and Author.
+- Relationships: Each Author can have multiple Books, but each Book belongs to only one Author.
+
+### API Endpoints
+
+The application provides the following API endpoints:
+
+- Get a list of all books (`GET /api/books`)
+- Get detailed information about a single book (`GET /api/books/{id}`)
+- Add a new book (`POST /api/books`)
+- Update a book's information (`PUT` or `PATCH /api/books/{id}`)
+- Delete a book (`DELETE /api/books/{id}`)
+
+### API Authentication
+
+- The `POST`, `PUT`/`PATCH`, and `DELETE` endpoints are protected by token-based authentication.
+- Only logged-in users can perform these operations.
+
+## How to Set Up the Project
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/yakubu234/tiika-test
+   cd tiika-test
+2. **Install Dependencies:**
+
+To install the necessary dependencies, run the following command:
+
+```bash
+npm install
+
+# Configure Environment Variables:
+
+3. **Copy the environment variables from `root/env/.env.example`. then**
+4. **Create a folder `dist/env` if not found, and place the copied `.env` file there.**
+5. **Set all variables as required.**
+
+# Database Variables:
+
+- If `DATABASE_URL` is set in the `.env`, other DB variables are not necessary (`DATABASE_NAME`, `DATABASE_USER`, `DATABASE_HOST`, `DB_PASSWORD`).
+- If `DATABASE_URL` is not set, set `DATABASE_NAME`, `DATABASE_USER`, `DATABASE_HOST`, and `DB_PASSWORD` in the `.env`.
+
+# CORS Policy:
+
+- Set `ALLOWED_ORIGINS` separated by commas, e.g., `ALLOWED_ORIGINS=https://example1.com,https://example2.com`.
+
+# Install PostgreSQL:
+
+- Install PostgreSQL on your machine. Refer to `install_postgress.md` ` file for detailed installation instructions.
+
+
+
+## Unit Testing:
+
+Test cases can be located in the `tests/` directory.
+
+To execute the tests, follow these steps:
+
+1. **Open a terminal.**
+2. **Navigate to the root directory of your project.**
+3. **Run the following command:**
+
+```bash
+npx mocha -t tests
+
+
+8. Compilation and Execution:
+
+- Compile TypeScript code with:
+  ```
+  npx tsc
+  ```
+- Start the application with:
+  ```
+  npx nodemon dist/index.js
+  ```
+
+## Documentation
+
+- API documentation: [Postman Documentation](https://documenter.getpostman.com/view/12538701/2s9Y5R2mcr)
+- Swagger Documentation: [Swagger](https://swagger.sample.com)
