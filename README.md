@@ -50,16 +50,21 @@ npm install
 
 # Database Variables:
 
-- If `DATABASE_URL` is set in the `.env`, other DB variables are not necessary (`DATABASE_NAME`, `DATABASE_USER`, `DATABASE_HOST`, `DB_PASSWORD`).
-- If `DATABASE_URL` is not set, set `DATABASE_NAME`, `DATABASE_USER`, `DATABASE_HOST`, and `DB_PASSWORD` in the `.env`.
+- If `DATABASE_URL` is set in the `.env`, other DB variables are not necessary
+  (`DATABASE_NAME`, `DATABASE_USER`, `DATABASE_HOST`, `DB_PASSWORD`).
+- If `DATABASE_URL` is not set, set `DATABASE_NAME`, `DATABASE_USER`, `DATABASE_HOST`,
+  and `DB_PASSWORD` in the `.env`.
 
 # CORS Policy:
 
-- Set `ALLOWED_ORIGINS` separated by commas, e.g., `ALLOWED_ORIGINS=https://example1.com,https://example2.com`.
+- Set `ALLOWED_ORIGINS` separated by commas, e.g.,
+  `ALLOWED_ORIGINS=https://example1.com,https://example2.com`.
 
 # Install PostgreSQL:
 
-- Install PostgreSQL on your machine. Refer to `install_postgress.md` ` file for detailed installation instructions.
+- Install PostgreSQL on your machine. Refer to [`install_postgress.md`](./install_postgress.md) file for
+  detailed installation instructions.
+
 
 
 
@@ -90,9 +95,11 @@ npx mocha -t tests
 
 ## Documentation
 
-- API documentation: [Postman Documentation](https://documenter.getpostman.com/view/12538701/2s9Y5R2mcr)
-- Swagger Documentation: [Swagger](https://swagger.sample.com)
+- API documentation:
+  [Postman Documentation](https://documenter.getpostman.com/view/12538701/2s9Y5R2mcr)
 
+- Swagger Documentation:
+  [Swagger](https://swagger.sample.com)
 
 ## file tree
 - root_folder/
