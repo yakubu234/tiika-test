@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { expect } from 'chai';
 import app from '../src/index';
+import sequelize from '../src/db';
 
 describe('Book API Endpoints', () => {
   let accessToken: string;
@@ -9,6 +10,7 @@ describe('Book API Endpoints', () => {
   let testPassword: string;
 
   before(async () => {
+    await sequelize.sync();
     // Generate dynamic test username and password
     testUsername = 'testuser_' + Math.random().toString(36).substring(7);
     testPassword = 'test64@$pwd' + Math.random().toString(36).substring(7);

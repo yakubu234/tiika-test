@@ -79,7 +79,8 @@ To execute the tests, follow these steps:
 3. **Run the following command:**
 
 ```bash
-npx mocha -t tests
+npx mocha -r ts-node/register tests/**/*.test.ts
+
 
 
 8. Compilation and Execution:
