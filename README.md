@@ -1,4 +1,4 @@
-# tiika-test
+# tilka-test
 # Project: Bookstore API
 
 ## About the Project
@@ -135,6 +135,8 @@ npx mocha -t tests
         - db.ts (postgres database connection file with sequelize orm)
         - index.ts (typescript main file, the initialization/entry point)
     - test/
+        - authentication.test.ts
+        - book.test.ts
     - .gitingore
     - install_postgress.md
     - mocha.opts
