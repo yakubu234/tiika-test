@@ -93,6 +93,19 @@ npx mocha -r ts-node/register tests/**/*.test.ts
   ```
   npx nodemon dist/index.js
   ```
+ or copy the below code
+
+# Step 8: Compilation and Execution
+
+Once you have configured the environment variables, installed dependencies, and set up the database, you are ready to compile and run the TypeScript code.
+
+### Compile TypeScript Code
+
+Use the following command to transpile the TypeScript code into JavaScript:
+
+```bash
+npx tsc
+
 
 ## Documentation
 
