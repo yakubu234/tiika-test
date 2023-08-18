@@ -91,8 +91,14 @@ To execute the tests, follow these steps:
 3. **Run the following command:**
 
 ```bash
-npx mocha -r ts-node/register tests/**/*.test.ts
+npx mocha -r ts-node/register tests/**/*.test.ts  --exit
 ````
+
+or 
+
+```bash
+npm test
+```
 
 
 
