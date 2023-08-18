@@ -27,7 +27,14 @@ The application provides the following API endpoints:
 
 - The `POST`, `PUT`/`PATCH`, and `DELETE` endpoints are protected by token-based authentication.
 - Only logged-in users can perform these operations.
+## Documentation
 
+- API documentation:
+  [Postman Documentation](https://documenter.getpostman.com/view/12538701/2s9Y5R2mcr)
+
+- Swagger Documentation:
+  [Swagger](https://abiolayakubu.com.ng/view/)
+  
 ## How to Set Up the Project
 
 1. **Clone the Repository:**
@@ -40,6 +47,7 @@ The application provides the following API endpoints:
 To install the necessary dependencies, run the following command:
 
 ```bash
+```
 npm install
 
 # Configure Environment Variables:
@@ -79,6 +87,7 @@ To execute the tests, follow these steps:
 3. **Run the following command:**
 
 ```bash
+````
 npx mocha -r ts-node/register tests/**/*.test.ts
 
 
@@ -107,13 +116,7 @@ Use the following command to transpile the TypeScript code into JavaScript:
 npx tsc
 
 
-## Documentation
 
-- API documentation:
-  [Postman Documentation](https://documenter.getpostman.com/view/12538701/2s9Y5R2mcr)
-
-- Swagger Documentation:
-  [Swagger](https://abiolayakubu.com.ng/view/)
 
 ## file tree
 - root_folder/
