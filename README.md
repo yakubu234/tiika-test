@@ -34,6 +34,10 @@ The application provides the following API endpoints:
 
 - Swagger Documentation:
   [Swagger](https://abiolayakubu.com.ng/view/)
+
+
+- App available at:
+  [app hosted here](https://tilka.mockup.com.ng/)
   
 ## How to Set Up the Project
 
@@ -87,13 +91,19 @@ To execute the tests, follow these steps:
 3. **Run the following command:**
 
 ```bash
-````
 npx mocha -r ts-node/register tests/**/*.test.ts
+````
 
 
 
-8. Compilation and Execution:
 
+#  Step 8. Compilation and Execution:
+
+Once you have configured the environment variables, installed dependencies, and set up the database, you are ready to compile and run the TypeScript code.
+
+### Compile TypeScript Code
+
+Use the following command to transpile the TypeScript code into JavaScript:
 - Compile TypeScript code with:
   ```
   npx tsc
@@ -102,20 +112,7 @@ npx mocha -r ts-node/register tests/**/*.test.ts
   ```
   npx nodemon dist/index.js
   ```
- or copy the below code
-
-# Step 8: Compilation and Execution
-
-Once you have configured the environment variables, installed dependencies, and set up the database, you are ready to compile and run the TypeScript code.
-
-### Compile TypeScript Code
-
-Use the following command to transpile the TypeScript code into JavaScript:
-
-```bash
-npx tsc
-
-
+ 
 
 
 ## file tree
