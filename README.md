@@ -45,14 +45,18 @@ The application provides the following API endpoints:
 
    ```bash
    git clone https://github.com/yakubu234/tiika-test
+   ```
+```bash
    cd tiika-test
-2. **Install Dependencies:**
+```
+1. **Install Dependencies:**
 
 To install the necessary dependencies, run the following command:
 
 ```bash
-```
 npm install
+```
+
 
 # Configure Environment Variables:
 
