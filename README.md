@@ -113,7 +113,7 @@ npx tsc
   [Postman Documentation](https://documenter.getpostman.com/view/12538701/2s9Y5R2mcr)
 
 - Swagger Documentation:
-  [Swagger](https://swagger.sample.com)
+  [Swagger](https://abiolayakubu.com.ng/view/)
 
 ## file tree
 - root_folder/
